@@ -1,0 +1,43 @@
+{
+    "name": "cloud-sf-extension-cap-sample",
+    "version": "1.0.0",
+    "description": "Successfactors Extension Application",
+    "repository": "https://github.com/SAP-samples/cloud-sf-extension-cap-sample.git",
+    "license": "Apache License 2.0",
+    "dependencies": {
+        "@sap/audit-logging": "^5.0.0",
+        "@sap/cds": "^5",
+        "@sap/hana-client": "^2.8.16",
+        "@sap/xb-msg-amqp-v100": "^0.9.48",
+        "@sap/xsenv": "^3.1.0",
+        "@sap/xssec": "^3.2.0",
+        "express": "^4.17.1",
+        "passport": "^0.4.1"
+    },
+    "engines": {
+        "node": "^14"
+    },
+    "scripts": {
+        "start": "cds run",
+        "build": "cds build/all --clean"
+    },
+    "cds": {
+        "hana": {
+            "deploy-format": "hdbtable"
+        },
+        "requires": {
+            "uaa": {
+                "kind": "xsuaa"
+            },
+            "messaging": {
+                "kind": "enterprise-messaging-shared"
+            },
+            "db": {
+                "kind": "hana"
+            }
+        },
+        "odata": {
+            "version": "v4"
+        }
+    }
+}
